@@ -33,21 +33,33 @@ func main() {
 			return
 		case tt == html.StartTagToken:
 			t := tkn.Token()
-
+			// ------------ Search <a> ---------
 			isLink = t.Data == "a"
 			if isLink {
 				fmt.Println("there is a link", t.Data)
 			}
 
-		case tt == html.TextToken:
-
-			t := tkn.Token()
-
-			if isLink {
-				//vals = append(vals, t.Data)
-				//fmt.Println(vals)
-				fmt.Println(t.Data)
+			// ------------ Print the value of href ---------
+			for _, a := range t.Attr {
+				if a.Key == "href" {
+					fmt.Println("Found href:", a.Val)
+					break
+				}
 			}
+
+			// case tt == html.TextToken:
+
+			// 	t := tkn.Token()
+
+			// 	if isLink {
+			// 		// 		//vals = append(vals, t.Data)
+			// 		// 		//fmt.Println(vals)
+
+			// 		//fmt.Println(t.Data)
+
+			// 		fmt.Println(t)
+
+			// 	}
 
 		}
 
