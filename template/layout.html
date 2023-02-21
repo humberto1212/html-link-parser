@@ -1,14 +1,39 @@
-<h1>{{.Title}}</h1>
-<ul>
-    {{range .Story}}
-            <li>{{.}}</li>
-    {{end}}
-</ul>
-<ul>
-    {{range .Options}}
-    <li>
-        <h4>{{.Text}}</h4>
-        <a href="http://localhost:8000/{{.Arc}}">{{.Arc}}</a>
-    </li>
-    {{end}}
-</ul>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link Parser</title>
+</head>
+<body >
+    <header style=" width: 100%;">
+     
+            <h1 style="display: flex; justify-content: center; align-items: center;">Link Parser</h1>
+        
+        
+    </header>
+    <div>
+        <ul style="color: #913175;">
+            {{range .Link}}
+             <li
+                    style="padding: 5px 10px;
+                    background-color: #EEEEEE;
+                    border: 1px solid #DDDDDD; 
+                    font-size: 24px;
+                    "
+                    >
+                      <span style="font-weight: bolder;">Href:</span> {{.href}} 
+                       <br><br>
+                       <span style="font-weight: bolder;">Text:</span> {{range .Text}}
+                         {{.}}
+                        {{end}}
+                        <br><br>
+        
+                    </li>   
+            {{end}}
+        </ul>
+    </div>
+
+</body>
+</html>
